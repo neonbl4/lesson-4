@@ -38,13 +38,13 @@ public class XOGame {
         System.out.println("Игра закончена");
     }
     public static boolean checkWin(char symb) {
-        for (int j = 0; j < SIZE-4; j++) {
+        for (int j = 0; j < SIZE-1; j++) {
             for (int i = 0; i < SIZE-1; i++) {
-                if(map[i][j] == symb && map[i][j+1] == symb && map[i][j+2] == symb && map[i][j+3] == symb) return true;
+                if(map[i][0] == symb && map[i][1] == symb && map[i][2] == symb && map[i][3] == symb) return true;
+                if(map[i][1] == symb && map[i][2] == symb && map[i][3] == symb && map[i][4] == symb) return true;
 
 
-
-                /*if(map[0][j] == symb && map[1][j] == symb && map[2][j] == symb && map[3][j] == symb) return true;
+                if(map[0][j] == symb && map[1][j] == symb && map[2][j] == symb && map[3][j] == symb) return true;
                 if(map[1][j] == symb && map[2][j] == symb && map[3][j] == symb && map[4][j] == symb) return true;
 
                 if(map[i][0] == symb && map[i+1][1] == symb && map[i+2][2] == symb && map[i+3][3] == symb) return true;
@@ -52,7 +52,7 @@ public class XOGame {
 
                 if(map[i][3] == symb && map[i+1][2] == symb && map[i+2][1] == symb && map[i+3][0] == symb) return true;
                 if(map[i][4] == symb && map[i+1][3] == symb && map[i+2][2] == symb && map[i+3][1] == symb) return true;
-*/
+
 
             }
 
@@ -80,14 +80,36 @@ public class XOGame {
     public static void aiTurn() {
         int x, y;
 
-
-
-            if (map[0][0] == DOT_X && map[1][1] == DOT_X) {
+            if (map[0][0] == DOT_X && map[0][1] == DOT_X) {
                 x = 2;
                 y = 0;
                 System.out.println("Компьютер походил в точку " + (x + 1) + " " + (y + 1));
                 map[y][x] = DOT_O;
-            } else do {
+            } else if (map[1][0] == DOT_X && map[1][1] == DOT_X) {
+                x = 2;
+                y = 1;
+                System.out.println("Компьютер походил в точку " + (x + 1) + " " + (y + 1));
+                map[y][x] = DOT_O;
+            } else if (map[2][0] == DOT_X && map[2][1] == DOT_X) {
+                x = 2;
+                y = 2;
+                System.out.println("Компьютер походил в точку " + (x + 1) + " " + (y + 1));
+                map[y][x] = DOT_O;
+            }else if (map[3][0] == DOT_X && map[3][1] == DOT_X) {
+                x = 2;
+                y = 3;
+                System.out.println("Компьютер походил в точку " + (x + 1) + " " + (y + 1));
+                map[y][x] = DOT_O;
+            }
+            else if (map[4][0] == DOT_X && map[4][1] == DOT_X) {
+                x = 2;
+                y = 4;
+                System.out.println("Компьютер походил в точку " + (x + 1) + " " + (y + 1));
+                map[y][x] = DOT_O;
+            }
+
+
+        do {
                     x = rand.nextInt(SIZE);
                     y = rand.nextInt(SIZE);
 
